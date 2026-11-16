@@ -5,5 +5,10 @@ libs = ["lib"]
 remappings = [
   "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/"
 ]
+fs_permissions = [
+    { access = "read", path = "./img/" },
+    { access = "read", path = "./broadcast" },
+    { access = "read", path = "./lib/forge-devops" }
+]
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
