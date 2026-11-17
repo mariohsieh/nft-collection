@@ -1,5 +1,8 @@
 -include .env
 
+code-coverage:
+	@forge coverage --report lcov && genhtml lcov.info --branch-coverage --output-dir coverage
+
 NETWORK_ARGS := --rpc-url $(LOCALHOST_RPC_URL) --private-key $(DEFAULT_ANVIL_KEY) --broadcast
 
 deploy-basic:

@@ -38,11 +38,11 @@ contract SVG_NFT is ERC721 {
     s_nextTokenId++;
   }
 
-  function tokenURI(uint256 tokenId) public view override returns (string memory) {
+  function tokenURI(uint256 tokenId) public pure override returns (string memory) {
     // owner check
-    if (ownerOf(tokenId) == address(0)) {
-      revert InvalidTokenId(tokenId);
-    }
+    // if (ownerOf(tokenId) == address(0)) {
+    //   revert InvalidTokenId(tokenId);
+    // }
 
     // encode SVG image in base64
     string memory base64SVG = Base64.encode(bytes(SVG_IMAGE));

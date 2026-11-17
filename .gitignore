@@ -21,3 +21,5 @@ docs/
 
 # test coverage report
 coverage/
+
+.DS_Store
