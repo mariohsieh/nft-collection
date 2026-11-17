@@ -1,17 +1,18 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.38;
 
-import { ERC721 } from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import { ERC721 } from "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
+// import { ERC721 } from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract BasicNft is ERC721 {
+contract Basic_NFT is ERC721 {
   // track how many tokens have been issued
   uint256 private s_tokenCounter;
   // create mapping for token ID -> token URI
   mapping(uint256 => string) private s_tokenIdToUri;
 
   constructor() ERC721("Doggy", "DOG") {
-    // initialize counter to 0
-    s_tokenCounter = 0;
+    // initialize counter to 1
+    s_tokenCounter = 1;
   }
 
   function mintNft(string memory tokenUri) public {

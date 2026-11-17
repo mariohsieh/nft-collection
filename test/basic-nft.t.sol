@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.38;
 
-import { Test } from "lib/forge-std/src/Test.sol";
-import { DeployBasicNft } from "../script/deploy-basic-nft.s.sol";
-import { BasicNft } from "../src/basic-nft.sol";
+import { Test, console } from "lib/forge-std/src/Test.sol";
+import { Deploy_Basic_NFT } from "../script/deploy-nft.s.sol";
+import { Basic_NFT } from "../src/basic-nft.sol";
 
-contract BasicNftTest is Test {
-  BasicNft public basicNft;
+contract Basic_NFT_Test is Test {
+  Basic_NFT public basicNft;
   address public user = makeAddr("user");
   string constant PUG = "https://bafkreihdpkml2wi3qn3hmf4mut23chh3ks7eeng353agc4m2emefaqjksq.ipfs.dweb.link?filename=pug.png";
 
   function setUp() public {
-    DeployBasicNft deployer = new DeployBasicNft();
+    Deploy_Basic_NFT deployer = new Deploy_Basic_NFT();
     basicNft = deployer.run();
   }
 
@@ -38,6 +38,6 @@ contract BasicNftTest is Test {
 
     // assert
     assert(basicNft.balanceOf(user) == 1);
-    assert(keccak256(abi.encodePacked(PUG)) == keccak256(abi.encodePacked(basicNft.tokenURI(0))));
+    assert(keccak256(abi.encodePacked(PUG)) == keccak256(abi.encodePacked(basicNft.tokenURI(1))));
   }
 }
